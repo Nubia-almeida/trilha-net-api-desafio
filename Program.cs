@@ -30,4 +30,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+
+//teste
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<OrganizadorContext>();
+    db.Database.Migrate();
+}
+
 app.Run();
